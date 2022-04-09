@@ -322,13 +322,14 @@ export class MapsComponent implements OnInit {
         label: "C",
         draggable: true,
         content:   [ {label:"BBRCD",key:item.BBRCD},{label:"BRANCH NAME",key:item.BBRNAME},
-        {label:"UP",key:item.BRUP},
-        {label:"ENTRAP",key:item.BRENTRAP},
-        {label:"DWN2",key:item.BRDWN2},
-        {label:"BATT",key:item.BRBATTERY},
-        {label:"NC",key:item.BRNC},
-        {label:"DWN1",key:item.BRDWN1},
+        // {label:"UP",key:item.BRUP},
+        // {label:"ENTRAP",key:item.BRENTRAP},
         {label:"TOTAl",key:item.BRTOT},
+        {label:"DWN2",key:item.BRDWN2},
+        // {label:"BATT",key:item.BRBATTERY},
+        // {label:"NC",key:item.BRNC},
+        // {label:"DWN1",key:item.BRDWN1},
+        
                     ]
     });
     console.log(this.markers)

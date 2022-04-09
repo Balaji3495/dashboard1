@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 
 import { AgmOverlays } from 'agm-overlays';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import * as $ from 'jquery'
 
@@ -29,10 +30,10 @@ import * as $ from 'jquery'
     //   apiKey: 'AIzaSyC3v_a-fCIXOhPdCdmYBY6DVKw59CvwIJ8'
     // })
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC3v_a-fCIXOhPdCdmYBY6DVKw59CvwIJ8'
+      apiKey: 'AIzaSyCUbmQfyIpmQ67_SakPJccJER9jAO8HZyI'
     })
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
