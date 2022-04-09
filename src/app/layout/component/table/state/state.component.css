@@ -1,0 +1,24 @@
+@import url("../../../../../assets/css/style.css");
+@import url("../../../../../assets/iconfonts/feather/feather.css");
+.tab{
+    margin-top: 62px;
+}
+@media (min-width: 992px)
+{
+.app-content {
+margin-left: 160px !important;
+}
+}
+
+.btn {
+    background-color: #6c5ffc;
+    border: none;
+    color: white;
+    padding: 8px 21px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }

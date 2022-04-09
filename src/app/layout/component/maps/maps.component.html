@@ -1,0 +1,90 @@
+<div class="jumps-prevent" style="padding-top: 74px;"></div> <!-- /app-Header -->
+<!--APP-SIDEBAR-->
+
+
+
+<div class="jumps-prevent" style="padding-top: 74px;"></div>
+<div class="main-content app-content mt-0">
+    <div class="side-app">
+        <!-- CONTAINER -->
+        <div class="main-container container-fluid">
+
+            <div class="row tab">
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <div class="card overflow-hidden">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">India Map</h3>
+                            </div>
+                        </div>
+
+
+                        <div class="card-body p-0 mt-2">
+                            <div class="">
+                                <div id="world-map-markers1" class="worldh world-map h-250">
+                                   
+                                    <agm-map [latitude]="lat"
+                                    [longitude]="lng"
+                                    [zoom]="zoom"
+                                    [disableDefaultUI]="false"
+                                   >
+                                        <agm-marker     *ngFor="let m of markers; let i = index"
+                                        (markerClick)="clickedMarker(m.label, i)"
+                                        [latitude]="m.lat"
+                                        [longitude]="m.lng">
+                                        <agm-info-window>
+                                          <p *ngFor="let ma of m.content;"> 
+                                            <strong>{{ma.label}}</strong>:<span>{{ma.key}}</span>
+                                            </p>
+                                          </agm-info-window></agm-marker>
+                                      </agm-map>
+                                    
+                                </div>
+                            </div>
+                            <!-- <div class="table-responsive mt-2 text-center">
+                                <table class="table text-nowrap border-dashed mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-start">Br.Cd</th>
+                                            <th class="">Branch Name</th>
+                                            <th class="">UP</th>
+                                            <th class="">Entrap</th>
+                                            <th class="">DWN2</th>
+                                            <th class="">Batt.</th>
+                                            <th class="">NC</th>
+                                            <th class="">DWN1</th>
+                                            <th class="">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let item of state ">
+                                        <tr>
+                                            <td class="p-4">{{item?.BBRCD}}</td>
+                                            <td class="text-start p-4"><span
+                                                    class="sales-icon text-primary mx-2 brround bg-primary-transparent p-2">
+                                                </span><span class="mobile">{{item.BBRNAME}}</span> </td>
+                                            <td class="p-4">{{item.BRUP}}</td>
+                                            <td class="p-4">{{item.BRENTRAP}}</td>
+                                            <td class="p-4">{{item.BRDWN2}}</td>
+                                            <td class="p-4">{{item.BRBATTERY}}</td>
+                                            <td class="p-4">{{item.BRNC}}</td>
+                                            <td class="p-4">{{item.BRDWN1}}</td>
+                                            <td class="p-4">{{item.BRTOT}}</td>
+                                        </tr>
+
+
+
+                                    </tbody>
+                                </table>
+                                <!--end /table
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <button (click)="pervious()"class="btn">Pervious</button>
+                <button (click)="next()"class="btn">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
