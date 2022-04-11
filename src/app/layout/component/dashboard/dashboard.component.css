@@ -64,6 +64,10 @@
       .tooltipT span:focus .tooltipT{
           display: none;/*CLOSE TOOLTIP ON CLICK*/
       }
+      /* center */
+      .center {
+          text-allign:center;
+      }
       /*======ARROW=====*/
       .tooltipT>.arrow, .tooltipT>.arrow:after {
           position: absolute;
