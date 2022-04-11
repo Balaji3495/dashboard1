@@ -361,7 +361,7 @@ export class MapsComponent implements OnInit {
   //   console.log("dragEnd", m, $event);
   // }
  
-  pervious(){
+  previous(){
     this.router.navigateByUrl('/dashboard')
   }
   next(){

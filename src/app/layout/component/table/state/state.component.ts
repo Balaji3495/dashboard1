@@ -12,7 +12,7 @@ export class StateComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  pervious(){
+  previous(){
     this.router.navigateByUrl('/down2')
   }
   
