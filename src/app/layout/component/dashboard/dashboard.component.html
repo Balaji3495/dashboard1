@@ -211,7 +211,7 @@
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>  -->
             <!-- ROW-2 END -->
             <!-- ROW-3 -->
@@ -224,8 +224,8 @@
                                     <div _ngcontent-scv-c16="" class="card-body">
                                         <div _ngcontent-scv-c16="" class="d-flex">
                                             <div _ngcontent-scv-c16="" class="mt-2">
-                                                <h6 _ngcontent-scv-c16="">Total</h6>
-                                                <h2 _ngcontent-scv-c16="" class="mb-0 number-font">220</h2>
+                                                <h6 _ngcontent-scv-c16="">TOTAL</h6>
+                                                <h2 _ngcontent-scv-c16="" class="mb-0 number-font">{{total_count}}</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -237,7 +237,12 @@
                                     <div _ngcontent-scv-c16="" class="card-body">
                                         <div _ngcontent-scv-c16="" class="d-flex">
                                             <div _ngcontent-scv-c16="" class="mt-2">
-                                                <h6 _ngcontent-scv-c16="">{{item?.STAT}}</h6>
+                                                <h6 *ngIf="item?.STAT == 'UP'" _ngcontent-scv-c16="">RUNNING</h6>
+                                                <h6 *ngIf="item?.STAT == 'ENT'" _ngcontent-scv-c16="">ENTRAPMENT</h6>
+                                                <h6 *ngIf="item?.STAT == 'DWN2'" _ngcontent-scv-c16="">BREAK DOWN</h6>
+                                                <h6 *ngIf="item?.STAT == 'BAT'" _ngcontent-scv-c16="">LOW BATTERY</h6>
+                                                <h6 *ngIf="item?.STAT == 'NC'" _ngcontent-scv-c16="">NO COMMUNICATION</h6>
+                                                <h6 *ngIf="item?.STAT == 'DWN1'" _ngcontent-scv-c16="">ERROR</h6>
                                                 <h2 _ngcontent-scv-c16="" class="mb-0 number-font">{{item?.STATCNT}}
                                                 </h2>
                                             </div>
@@ -250,13 +255,13 @@
 
                     </div>
                 </div>
-                
+
 
             </div>
-            <div class="text-center">
+            <div class="">
 <button (click)="next()"class="btn">Next</button>
             </div>
-            
+
             <!-- ROW-3 END -->
 
 

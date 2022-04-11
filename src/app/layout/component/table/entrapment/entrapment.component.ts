@@ -12,7 +12,7 @@ export class EntrapmentComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  previous(){
+  pervious(){
     this.router.navigateByUrl('/maps')
   }
   next(){

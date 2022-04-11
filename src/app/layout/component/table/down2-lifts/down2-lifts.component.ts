@@ -12,7 +12,7 @@ export class Down2LiftsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  previous(){
+  pervious(){
     this.router.navigateByUrl('/entrapment')
   }
   next(){

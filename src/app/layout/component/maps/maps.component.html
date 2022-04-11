@@ -9,36 +9,50 @@
         <!-- CONTAINER -->
         <div class="main-container container-fluid">
 
-            <div class="row tab">
+            <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12">
-                    <div class="card overflow-hidden">
-                        <div class="card-header">
-                            <div>
-                                <h3 class="card-title">India Map</h3>
-                            </div>
-                        </div>
-
-
-                        <div class="card-body p-0 mt-2">
+                    <div class="overflow-hidden">
+                        <div class="card-body p-0">
                             <div class="">
                                 <div id="world-map-markers1" class="worldh world-map h-250">
-                                   
+
                                     <agm-map [latitude]="lat"
                                     [longitude]="lng"
                                     [zoom]="zoom"
                                     [disableDefaultUI]="false"
                                    >
-                                        <agm-marker     *ngFor="let m of markers; let i = index"
+                                        <ng-container *ngFor="let m of markers; let i = index">
+
+                                          <agm-marker *ngIf="m.check_status > 0"
+                                          (markerClick)="clickedMarker(m.label, i)"
+                                          [latitude]="m.lat"
+                                          [longitude]="m.lng"
+                                          >
+                                          <agm-info-window>
+                                            <p *ngFor="let ma of m.content;">
+                                              <strong>{{ma.label}} </strong>:<span>{{ma.key}}</span>
+                                              </p>
+                                            </agm-info-window></agm-marker>
+
+                                        <agm-marker *ngIf="m.check_status == 0"
                                         (markerClick)="clickedMarker(m.label, i)"
                                         [latitude]="m.lat"
-                                        [longitude]="m.lng">
+                                        [longitude]="m.lng"
+                                        [iconUrl]="icon"
+                                        >
                                         <agm-info-window>
-                                          <p *ngFor="let ma of m.content;"> 
+                                          <p *ngFor="let ma of m.content;">
                                             <strong>{{ma.label}}</strong>:<span>{{ma.key}}</span>
                                             </p>
                                           </agm-info-window></agm-marker>
+
+
+
+                                        </ng-container>
+
+
                                       </agm-map>
-                                    
+
                                 </div>
                             </div>
                             <!-- <div class="table-responsive mt-2 text-center">
@@ -81,8 +95,8 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center">
-                <button (click)="previous()"class="btn">Previous</button>
+            <div class="">
+                <button (click)="pervious()"class="btn">Previous</button>
                 <button (click)="next()"class="btn">Next</button>
             </div>
         </div>

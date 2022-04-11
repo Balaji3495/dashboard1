@@ -16,7 +16,7 @@ declare var $:any;
 })
 export class DashboardComponent implements OnInit {
   count: any = [];
-  
+  total_count = 0;
   bangalore:any;
   filtered: any;
   banga:any;
@@ -24,20 +24,20 @@ export class DashboardComponent implements OnInit {
   dash:boolean;
 
 
- 
- 
+
+
   constructor(private dashboardservice :DashboardService,private router:Router) { }
-  
+
   ngOnInit(): void {
     this.dash=true;
 
     this.getData();
     let obj =this;
-  
-    
-  
-   
-    
+
+
+
+
+
     let world =document.querySelectorAll('#world-map-markers1');
     // console.log(obj.state );
     $(world).on('click', function(e:any){
@@ -45,34 +45,37 @@ export class DashboardComponent implements OnInit {
       // if(e.target.classList.value=='tipClick bangalore'){
       //   obj.filtered = obj.state.filter(
       //     (book:any) =>book.BBRNAME=="BANGALORE" );
-       
+
       //   console.log(obj.filtered );
 
       // }
       // else if(e.target.classList.value=='tipClick chennai'){
       //   obj.filtered = obj.state.filter(
       //     (book:any) =>book.BBRNAME=="CHENNAI" );
-       
+
       //   console.log(obj.filtered );
 
       // }
       // else if(e.target.classList.value=='tipClick perugudi'){
       //   obj.filtered = obj.state.filter(
       //     (book:any) =>book.BBRNAME=="PERUNGUDI" );
-       
+
       //   console.log(obj.filtered );
 
       // }
-     
+
 
     });
-    
+
   }
-  
+
   getData(){
     this.dashboardservice.getCount().subscribe(data =>{
       console.log(data)
       this.count=data['Data'];
+      this.count.forEach(element => {
+        this.total_count = this.total_count + element.STATCNT;
+      });
    });
 
   }
@@ -81,14 +84,14 @@ export class DashboardComponent implements OnInit {
   // getState(){
   //   this.dashboardservice.getState().subscribe(data =>{
   //     this.state=data['Data'];
-      
+
   //  });
 
   // }
 //   selectUrl(item :any){
 //     console.log(item)
 // if(item.STAT=="ENT"){
- 
+
 // }
 // if(item.STAT=="DWN2"){
 
@@ -101,6 +104,6 @@ export class DashboardComponent implements OnInit {
   next(){
     this.router.navigateByUrl('/maps')
   }
-  
+
 
 }
